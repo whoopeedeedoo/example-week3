@@ -406,26 +406,3 @@ angular.module('score', ['ui.bootstrap']);
         ctx.restore();   
                                          
       }   
-
-    function download(){
-        var can1 = document.getElementById("note");
-        var can2 = document.getElementById("shape");
-        var can3 = document.createElement('canvas');
-
-        can3.width = 600;
-        can3.height = 400;
-        var ctx3 = can3.getContext('2d');
-
-        ctx3.drawImage(can1, 0, 0);
-        ctx3.drawImage(can2, 0, 0);
-
-        if(can1.getContext && can2.getContext) {
-            var img = can3.toDataURL("image/png;base64;");
-            //img = img.replace("image/png","image/octet-stream"); // force download, user would have to give the file name.
-            // you can also use anchor tag with download attribute to force download the canvas with file name.
-            window.open(img,"","width=600,height=400");
-        }
-        else {
-             alert("Can not export");
-        }
-    }
